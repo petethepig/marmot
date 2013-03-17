@@ -47,7 +47,6 @@ module Marmot
         type = array[0]
         allowed_values = array[1..999]
         user_value = options[key].nil? ? options[key.to_s] : options[key]
-        user_value = user_value.to_s unless user_value.nil?
         
         if !user_value.nil? && OPTIONS.has_key?(key) && !NON_EXPERT_OPTIONS.include?(key)
           options[:mode] = result[:mode] = "expert" if options[:mode].nil?
