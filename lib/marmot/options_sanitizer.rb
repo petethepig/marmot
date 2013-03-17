@@ -77,7 +77,7 @@ module Marmot
         when :checkbox
           if user_value == true
             result[key] = allowed_values.last
-          elsif user_value == "false"
+          elsif user_value == false
             #nil
           else
             result[key] = allowed_values.include?(user_value) ? (user_value) : (allowed_values[0])

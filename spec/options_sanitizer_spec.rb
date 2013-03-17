@@ -46,6 +46,21 @@ describe Marmot::OptionsSanitizer do
     })
   end
 
+
+  it "returns options 2" do
+    opts = Marmot::OptionsSanitizer.sanitize({
+      :formats => ["woff","ttf"],
+      :add_hyphens => false,
+      :webonly => true,
+      :mode => "basic"
+    })
+    opts.should include({
+      :formats => ["woff","ttf"],
+      :webonly => "Y",
+      :mode => "basic"
+    })
+  end
+
   it "doesn't accept incorrect options" do
     opts = Marmot::OptionsSanitizer.sanitize(params = {
       :agreement => "N",
