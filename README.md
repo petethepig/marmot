@@ -78,6 +78,7 @@ Some option names can be confusing. Go to [generator's page](http://www.fontsqui
     $(this).after($("<div style='color:red;'>"+$(this).attr("name")+" : "+$(this).attr("value")+"</div>"));
   });
 ```
+![Options](https://raw.github.com/petethepig/marmot/master/doc/js-snippet.png)
 
 ###What else?
 Since Marmot is a ruby gem, you can use it in your ruby projects:
