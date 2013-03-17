@@ -96,3 +96,5 @@ client.convert File.new("font.ttf"), {
 Marmot is only a couple days old, so this can happen. Please, report on the [Issues page](https://github.com/petethepig/marmot/issues).
 
 Or [contact me on Twitter](https://twitter.com/dmi3f)
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/37f28361c2ec4bf7ff7b8a9bc3655929 "githalytics.com")](http://githalytics.com/petethepig/marmot)
