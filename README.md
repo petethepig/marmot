@@ -1,4 +1,4 @@
-# Marmot — Unofficial [FontSquirrel Webfont Generator](https://github.com/petethepig/) Client 
+# Marmot — Unofficial [FontSquirrel Webfont Generator](http://www.fontsquirrel.com/tools/webfont-generator/) Client 
 
 Marmot automates font-face generation, making it easier and faster:
 
