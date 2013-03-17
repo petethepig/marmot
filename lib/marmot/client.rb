@@ -28,10 +28,6 @@ module Marmot
     #   Default is a File with the name like "webfontkit-20130312-200144.zip"
     #
     # @option options 
-    #   [IO]       :output_stream        
-    #   Custom output stream, like STDOUT
-    #
-    # @option options 
     #   [Hash]     :custom_options        
     #   Options that will bypass sanitization. Make sure you know what you do before trying it out.
     #
