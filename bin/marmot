@@ -1,0 +1,120 @@
+require 'forwardable'
+require 'trollop'
+require 'marmot'
+
+#Delegator pattern
+class CustomLogger < Logger
+  extend Forwardable
+  attr_accessor :stderr_logger
+  def_delegators :@stderr_logger, :fatal, :error
+
+  def initialize logdev, shift_age = 0, shift_size = 1048576
+    super logdev, shift_age, shift_size
+    @stderr_logger = Logger.new STDERR, shift_age, shift_size
+    @stderr_logger.formatter = self.formatter = proc do |severity, datetime, progname, msg|
+      "#{msg}\n"
+    end
+  end
+end
+
+
+class Marmot::CLI
+
+  BANNER = <<-EOF
+Usage: marmot [options] input [output]
+
+Description:
+  Convert font files to a webfont kit using FontSquirrel Webfont Generator
+
+Example:
+  marmot -v font.ttf
+  marmot font.ttf archive.zip
+  marmot -c config.txt font.ttf
+  marmot --formats=ttf,woff font.ttf
+  marmot --add-spaces --no-add-hyphens font.ttf
+
+Options:
+EOF
+
+  MAPPING = {
+    :array    => :string,
+    :radio    => :string,
+    :string   => :string,
+    :number   => :int,
+    :checkbox => :flag
+  }
+
+  def bail str=""
+    Trollop::die str.to_s
+    exit
+  end
+
+  def start
+    options = Trollop::options do
+      version "Marmot #{Marmot::VERSION} (c) 2013 Dmitry Filimonov https://github.com/petethepig/marmot"
+      banner BANNER
+      opt :verbose, 'Enable verbose mode',  short: 'v',    type: :flag
+      opt :debug,   'Enable debug mode',    short: 'd',    type: :flag
+      opt :config,  'Config file',          short: 'c',    type: :io
+      opt :output,  'Output file',          short: 'o',    type: :io
+
+      Marmot::OptionsSanitizer::OPTIONS.each_pair do |key, value|
+        type = MAPPING[value[0]]
+        opt key, key.to_s, type: type, short: :none unless key==:id
+      end
+    end.to_h
+
+    options.delete_if do |k,v|
+      !options["#{k}_given".to_sym]
+    end
+
+    #logger
+    logger = CustomLogger.new(STDOUT)
+    logger.sev_threshold = if options[:debug]
+      Logger::DEBUG
+    elsif options[:verbose]
+      Logger::INFO
+    else
+      Logger::ERROR
+    end
+
+    logger.debug "Command line options:\n#{options.collect{|k,v| "#{k}: #{v.inspect}" }.join("\n")}"
+
+    #files
+    input_file_path  = ARGV.first
+    output_file_path = options.delete(:output)
+    output_file_path ||= ARGV.last if ARGV.first != ARGV.last
+    config_file_path = options.delete :config
+
+    if !input_file_path
+      bail "Error: option 'input' is missing."
+    end
+
+    begin
+      input_file  = File.new(input_file_path)  
+      output_file = File.new(output_file_path,"wb") if output_file_path
+      config_file = File.new(config_file_path) if config_file_path
+    rescue StandardError => e
+      bail e.message
+    end
+
+
+    if(config_file)
+      options = JSON.parse(config_file.read.gsub /^#.*$/, '').merge options
+    end
+    if(output_file)
+      options[:output_io] = output_file
+    end
+
+    #finally, convert the font
+    begin
+      client = Marmot::Client.new
+      client.logger = logger
+      client.convert input_file, options
+    rescue Marmot::MarmotError => e
+      bail e.message
+    end
+  end
+end
+
+Marmot::CLI.new.start

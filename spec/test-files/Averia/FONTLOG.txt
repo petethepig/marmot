@@ -1,0 +1,67 @@
+FONTLOG
+Avería font family
+========================
+
+
+This file provides detailed information on the Avería family of fonts. This
+information should be distributed along with the Avería fonts and any
+derivative works.
+
+
+Basic Font Information
+----------------------
+
+Avería ("breakdown" or "mechanical damage" in Spanish - related to the root
+of the English word "average") is a Unicode typeface family created from the
+average of all fonts on the computer of the creator, Dan Sayers. The process
+is described at http://iotic.com/averia/. All metrics are the result of an
+averaging process. The included glyphs are those that existed in a majority
+of the source fonts - which are the following:
+
+Range           Description
+U+0020-U+007E   Basic Latin
+U+00A0-U+00FF   Latin-1 Supplement
+
+And some glyphs from the following:
+
+Range           Description
+U+0100-U+017F   Latin Extended-A
+U+0180-U+021F   Latin Extended-B
+U+02B0-U+02FF   Spacing Modifier Letters
+U+0370-U+03D5   Greek
+U+2000-U+2122   General Punctuation
+U+2200-U+25CS   Mathematical Operators
+
+Avería exists in Regular, Bold, Italic, Bold Italic, Light and Light Italic
+styles - as well as a "Gruesa" semi-italic variant made from an average of
+all 725 source fonts.
+
+
+ChangeLog
+---------
+(This should list both major and minor changes, most recent first.)
+
+02 Nov 2011 (Dan Sayers)  Avería version 1.01
+- Fixed bug in generating quotedblbase perimeters
+- Slightly changed kerning
+
+29 Oct 2011 (Dan Sayers)  Avería version 1.00
+- First public release
+- No hinting is included in this version.
+
+
+Acknowledgements
+----------------
+(Here is where contributors can be acknowledged. If you make modifications
+be sure to add your name (N), email (E), web-address (W) and description
+(D). This list is sorted by last name in alphabetical order.)
+
+N: Dan Sayers
+E: i@iotic.com
+W: http://iotic.com/
+D: Original Programmer and Creator
+
+For more information please visit the Avería page on the iotic website:
+http://iotic.com/averia/
+
+Or send an email to <i AT iotic DOT com>

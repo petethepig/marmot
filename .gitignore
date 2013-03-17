@@ -1,0 +1,6 @@
+.DS_Store
+._DS_Store
+*.gem
+bin/marmot-local
+.yardoc
+sandbox
