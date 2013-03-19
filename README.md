@@ -1,10 +1,10 @@
-# Marmot — Unofficial [FontSquirrel Webfont Generator](http://www.fontsquirrel.com/tools/webfont-generator/) Client 
+# Marmot — Unofficial [Font Squirrel Webfont Generator](http://www.fontsquirrel.com/tools/webfont-generator/) Client 
 
 Marmot automates font-face generation, making it easier and faster:
 
     marmot Averia-Regular.ttf         # ls .   =>   webfontkit.zip
 
-Marmot supports FontSquirrel configuration files:
+Marmot supports Font Squirrel configuration files:
 
     marmot  -c generator-config.txt  font.otf
 
@@ -20,9 +20,9 @@ Marmot is a ruby gem:
 
 ###Okay, how do I configure it?
 
-FontSquirrel Webfont Generator has **a lot of** options and by default Marmot will use default ones.
+Font Squirrel Webfont Generator has **a lot of** options and by default Marmot will use default ones.
 
-Every FontSquirrel webfont kit comes with a text file called **generator_config.txt**. Marmot can read it:
+Every Font Squirrel webfont kit comes with a text file called **generator_config.txt**. Marmot can read it:
 
     marmot  -c generator-config.txt  font.otf
 
