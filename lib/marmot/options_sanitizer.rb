@@ -36,7 +36,11 @@ module Marmot
     }
 
     NON_EXPERT_OPTIONS = [:id, :agreement, :mode]
-    SUBSET_OPTIONS = [:subset_range, :subset_custom, :subset_custom_range]
+    SUBSET_OPTIONS     = [:subset_range, :subset_custom, :subset_custom_range]
+
+    #{:fix_vertical_metrics=>false, :fix_gasp=>false, :remove_kerning=>false, :add_spaces=>false, :add_hyphens=>false, :webonly=>false, :base64=>false, :style_link=>false, :agreement=>false} 
+    FALSE_CHECKBOXES   = Hash[OPTIONS.collect{|k,v| [k,false] if v[0] == :checkbox }.compact]
+
 
     # Sanitize options 
     def self.sanitize options, custom_options={}

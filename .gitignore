@@ -4,3 +4,4 @@
 bin/marmot-local
 .yardoc
 sandbox
+new-version.rb

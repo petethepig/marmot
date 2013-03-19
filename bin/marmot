@@ -21,20 +21,21 @@ end
 class Marmot::CLI
 
   BANNER = <<-EOF
-Usage: marmot [options] input [output]
+  Usage: marmot [options] input [output]
 
-Description:
-  Convert font files to a webfont kit using FontSquirrel Webfont Generator
+  Description:
+    Convert font files to a webfont kit using FontSquirrel Webfont Generator
 
-Example:
-  marmot -v font.ttf
-  marmot font.ttf archive.zip
-  marmot -c config.txt font.ttf
-  marmot --formats=ttf,woff font.ttf
-  marmot --add-spaces --no-add-hyphens font.ttf
+  Example:
+    marmot -v font.ttf
+    marmot font.ttf archive.zip
+    marmot -c config.txt font.ttf
+    marmot --formats=ttf,woff font.ttf
+    marmot --add-spaces --no-add-hyphens font.ttf
 
-Options:
-EOF
+  Options:
+  EOF
+  .gsub /^  /, ''
 
   MAPPING = {
     :array    => :string,
@@ -100,7 +101,9 @@ EOF
 
 
     if(config_file)
-      options = JSON.parse(config_file.read.gsub /^#.*$/, '').merge options
+      options_from_config = JSON.parse(config_file.read.gsub /^#.*$/, '')
+      options_from_config = Marmot::OptionsSanitizer::FALSE_CHECKBOXES.merge(options_from_config)
+      options = options_from_config.merge options
     end
     if(output_file)
       options[:output_io] = output_file
