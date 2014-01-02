@@ -98,3 +98,6 @@ Marmot is only a couple days old, so this can happen. Please, report on the [Iss
 Or [contact me on Twitter](https://twitter.com/dmi3f)
 
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/37f28361c2ec4bf7ff7b8a9bc3655929 "githalytics.com")](http://githalytics.com/petethepig/marmot)
+
+[![Analytics](https://ga-beacon.appspot.com/UA-32704322-2/devtools-terminal/index)](https://github.com/igrigorik/ga-beacon)
+
