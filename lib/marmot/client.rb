@@ -12,7 +12,7 @@ module Marmot
     @@headers_set = false
 
     def initialize
-      logger = Logger.new("/dev/null")
+      logger = ::Logger.new("/dev/null")
       logger.close
     end
 
