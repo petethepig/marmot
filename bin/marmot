@@ -103,7 +103,7 @@ class Marmot::CLI
 
 
     if(config_file)
-      options_from_config = JSON.parse(config_file.read.gsub /^#.*$/, '')
+      options_from_config = JSON.parse(config_file.read.gsub(/^#.*$/, ''), {:symbolize_names => true})
       options_from_config = Marmot::OptionsSanitizer::FALSE_CHECKBOXES.merge(options_from_config)
       options = options_from_config.merge options
     end
