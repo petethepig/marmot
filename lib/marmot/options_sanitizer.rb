@@ -3,7 +3,7 @@ module Marmot
     OPTIONS = {
       :id                   => [:string, ""],
       :mode                 => [:radio, "optimal", "basic", "expert"],
-      :formats              => [:array, "ttf", "woff", "svg", "eotz", "eot"],
+      :formats              => [:array, "ttf", "woff", "woff2", "svg", "eotz", "eot"],
       :tt_instructor        => [:radio, "default", "keep"],
       :fix_vertical_metrics => [:checkbox, "Y"],
       :fix_gasp             => [:checkbox, "xy"],
