@@ -12,13 +12,13 @@ It is especially useful when it comes to your own icon fonts:
 
     marmot  -c config.txt  my-icon-font.otf  my-icon-font.zip
 
-###Great, how do I install Marmot?
+### Great, how do I install Marmot?
 
 Marmot is a ruby gem:
 
     gem install marmot
 
-###Okay, how do I configure it?
+### Okay, how do I configure it?
 
 Font Squirrel Webfont Generator has **a lot of** options and by default Marmot will use default ones.
 
@@ -68,7 +68,7 @@ Here is a full list of options:
                         --agreement
 ```
 
-###Oh, this is great, but what is "tt-instuctor" or "subset-custom"?
+### Oh, this is great, but what is "tt-instuctor" or "subset-custom"?
 
 Some option names can be confusing. Go to [generator's page](http://www.fontsquirrel.com/tools/webfont-generator) and run this in the console:
 
@@ -80,7 +80,7 @@ Some option names can be confusing. Go to [generator's page](http://www.fontsqui
 ```
 ![Options](https://raw.github.com/petethepig/marmot/master/doc/js-snippet.png)
 
-###What else?
+### What else?
 Since Marmot is a ruby gem, you can use it in your ruby projects:
 ```ruby
 require 'marmot'
@@ -91,13 +91,8 @@ client.convert File.new("font.ttf"), {
 }
 ```
 
-###I found a lousy bug, what do I do?
+### I found a lousy bug, what do I do?
 
-Marmot is only a couple days old, so this can happen. Please, report on the [Issues page](https://github.com/petethepig/marmot/issues).
+Please, report it on the [Issues page](https://github.com/petethepig/marmot/issues).
 
 Or [contact me on Twitter](https://twitter.com/dmi3f)
-
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/37f28361c2ec4bf7ff7b8a9bc3655929 "githalytics.com")](http://githalytics.com/petethepig/marmot)
-
-[![Analytics](https://ga-beacon.appspot.com/UA-32704322-2/devtools-terminal/index)](https://github.com/igrigorik/ga-beacon)
-
