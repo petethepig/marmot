@@ -6,7 +6,7 @@ module Marmot
   class Client
     include HTTMultiParty
 
-    base_uri 'www.fontsquirrel.com'
+    base_uri 'https://www.fontsquirrel.com'
     attr_accessor :logger
     attr_reader   :params
     @@headers_set = false
